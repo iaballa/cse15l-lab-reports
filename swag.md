@@ -17,6 +17,7 @@
 A link to the swaggiest bass cover on the planet:
 ---
 [swaggiest song](https://youtu.be/RtDOiTunH2E)
+[AN UPDATED SWAG COVER:](https://youtu.be/2Q8ykv4abj8)
 
 ## The swaggiest person alive:
 ![Image](https://cb2.scene7.com/is/image/CB2/AcaciaWoodMirrorRndSHF16)
