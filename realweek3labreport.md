@@ -108,7 +108,49 @@ static int[] reversed(int[] arr) {
 
 The issue is that in the original reversed method, instead of returning the new array, it is returning the old array instead of the new one. And within the loop that is meant to store the modified original array, the old array is the one that is being changed, not the new array. The new array has all values set to zero since that is the default for an array of int type, so within the loop, whenever arr[i] is being modified, it is always being set to zero.
 
-Another bug:
+**Another bug:**
+
+Error Inducing input:
+```
+@Test
+ public void reverseInPlaceTest4(){
+   int[] input = {-1, -2, -3, -4};
+   ArrayExamples.reverseInPlace(input);
+   assertArrayEquals(new int[]{-4, -3, -2, -1}, input);
+ }
+```
+
+The failure symptom:
+> 5) reverseInPlaceTest4(ArrayTests)
+arrays first differed at element [2]; expected:<-2> but was:<-3>
+
+The code with the bug:
+```
+static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
+```
+
+The code with the fix:
+```
+static void reverseInPlace(int[] arr) {
+   int temp;
+   for(int i = 0; i < arr.length/2; i += 1) {
+     temp = arr[i];
+     arr[i] = arr[arr.length - i - 1];
+     arr[arr.length - i - 1] = temp;
+   }
+ }
+```
+
+The issue is that when the method is traversing the array, it is not storing the values of the indices. Instead, they are being overwritten and not saved, so when the method goes to replace the indices, it is storing the value in the last index in more places than one. (i.e. instead of the result being [4, 3, 2, 1] the result is [4, 3, 4, 4]. Once it gets to the second half of the array, the values are lost and are then incorrect. In order to fix this, there needs to be a way to stop at the “halfway” point of the array, and this can be done by dividing the length of the array by two. 
+
+
+
+
+
 
 
 
