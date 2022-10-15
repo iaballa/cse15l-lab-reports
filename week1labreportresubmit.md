@@ -1,4 +1,4 @@
-# How to Log in to the UCSD Remote Computers
+# How to Log in to the UCSD Remote Computers by Ilia Aballa
 
 After retrieving your ieng6 specific account information at this link: [UCSD Account Retrieval](https://sdacs.ucsd.edu/~icc/index.php)
 
