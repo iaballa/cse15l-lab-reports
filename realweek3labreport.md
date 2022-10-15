@@ -55,6 +55,6 @@ else if (url.getPath().contains("/search")){
         }
 ```
 Here are screenshots of it:
-1) ![](<img width="381" alt="image" src="https://user-images.githubusercontent.com/114435397/195968973-38002100-4386-48d2-a29c-494fc8ce200b.png">)
-2) ![](<img width="415" alt="image" src="https://user-images.githubusercontent.com/114435397/195968966-7523d471-ac68-4ff9-a6c2-87018221160e.png">)
-3) ![](<img width="353" alt="image" src="https://user-images.githubusercontent.com/114435397/195968988-f7075300-8de9-4902-99a4-881b761ee6c2.png">)
+1) ![](https://user-images.githubusercontent.com/114435397/195968973-38002100-4386-48d2-a29c-494fc8ce200b.png)
+2) ![](https://user-images.githubusercontent.com/114435397/195968966-7523d471-ac68-4ff9-a6c2-87018221160e.png)
+3) ![](https://user-images.githubusercontent.com/114435397/195968988-f7075300-8de9-4902-99a4-881b761ee6c2.png)
