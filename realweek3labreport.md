@@ -56,5 +56,10 @@ else if (url.getPath().contains("/search")){
 ```
 Here are screenshots of it:
 1) ![](https://user-images.githubusercontent.com/114435397/195968973-38002100-4386-48d2-a29c-494fc8ce200b.png)
+In the above screenshot, I am adding swag to the list of strings.
+
 2) ![](https://user-images.githubusercontent.com/114435397/195968966-7523d471-ac68-4ff9-a6c2-87018221160e.png)
+In the above screenshot, I am adding apple to the list of strings. 
+
 3) ![](https://user-images.githubusercontent.com/114435397/195968988-f7075300-8de9-4902-99a4-881b761ee6c2.png)
+In the above screenshot, I am searching for strings that have "wag" in them.
