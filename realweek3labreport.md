@@ -56,10 +56,48 @@ else if (url.getPath().contains("/search")){
 ```
 Here are screenshots of it:
 1) ![](https://user-images.githubusercontent.com/114435397/195968973-38002100-4386-48d2-a29c-494fc8ce200b.png)
+
 In the above screenshot, I am adding swag to the list of strings.
 
 2) ![](https://user-images.githubusercontent.com/114435397/195968966-7523d471-ac68-4ff9-a6c2-87018221160e.png)
+
 In the above screenshot, I am adding apple to the list of strings. 
 
 3) ![](https://user-images.githubusercontent.com/114435397/195968988-f7075300-8de9-4902-99a4-881b761ee6c2.png)
+
 In the above screenshot, I am searching for strings that have "wag" in them.
+
+
+**Part 2**
+Here are some bugs that were in this week's lab:
+
+The error inducing input for this bug was:
+```
+@Test
+ public void testReversed1(){
+   int[] input = {1, 2, 3, 4};
+   assertArrayEquals(new int[]{4, 3, 2, 1}, ArrayExamples.reversed(input));
+ }
+```
+
+The failure symptom:
+> 1) testReversed1(ArrayTests)
+arrays first differed at element [0]; expected:<4> but was:<0>
+
+The fixed code:
+```
+static int[] reversed(int[] arr) {
+   int[] newArray = new int[arr.length];
+   for(int i = 0; i < arr.length; i += 1) {
+     newArray[i] = arr[arr.length - i - 1];
+   }
+   return newArray;
+ }
+```
+
+The issue is that in the original reversed method, instead of returning the new array, it is returning the old array instead of the new one. And within the loop that is meant to store the modified original array, the old array is the one that is being changed, not the new array. The new array has all values set to zero since that is the default for an array of int type, so within the loop, whenever arr[i] is being modified, it is always being set to zero.
+
+
+
+
+
