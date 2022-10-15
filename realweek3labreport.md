@@ -84,6 +84,17 @@ The failure symptom:
 > 1) testReversed1(ArrayTests)
 arrays first differed at element [0]; expected:<4> but was:<0>
 
+The code with the bug:
+```
+static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```
+
 The fixed code:
 ```
 static int[] reversed(int[] arr) {
@@ -96,6 +107,9 @@ static int[] reversed(int[] arr) {
 ```
 
 The issue is that in the original reversed method, instead of returning the new array, it is returning the old array instead of the new one. And within the loop that is meant to store the modified original array, the old array is the one that is being changed, not the new array. The new array has all values set to zero since that is the default for an array of int type, so within the loop, whenever arr[i] is being modified, it is always being set to zero.
+
+Another bug:
+
 
 
 
