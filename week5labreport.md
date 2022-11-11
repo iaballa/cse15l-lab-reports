@@ -7,7 +7,8 @@ The following is a short page about the `grep` command and the following three o
 
 For the purposes of this page, the directory I'm working in is called docsearch that roughly looks like:
 
-<img width="144" alt="image" src="https://user-images.githubusercontent.com/114435397/201221393-57388014-0948-4ea6-b803-5243a06b7800.png">
+
+<img width="338" alt="image" src="https://user-images.githubusercontent.com/114435397/201237544-b350a969-5ea1-4933-b1b5-fdf51a59122b.png">
 
 Each folder within technical contains various text files relating to the name of the folder.
 
@@ -131,12 +132,13 @@ $ grep -c "Abraham" ./technical/911report/chapter-2.txt
 This option is useful because it can help people determine how many files contain the pattern (even if the output can be difficult to read) and after using that information and refining their search, people can then use the option again to see how many times that term is used in the file. 
 
 **2. `-l` or `--files-with-match`**
+
 Here is an excerpt from the grep manual, obtained by using the `man grep` command that explains this option.
 
 <img width="720" alt="image" src="https://user-images.githubusercontent.com/114435397/201236007-edc24d3a-cc7e-42c8-9a27-aaeb3cb40708.png">
 
 
-A better way to have approached the last example would have been to use the `-l` option to first find which files contain the search term, and then go from there. The `-l` option returns output containing only the files that contain a match. This option and `--files-with-match` both return the same output. Then, with 
+A better way to have approached the last example would have been to use the `-l` option to first find which files contain the search term, and then go from there. The `-l` option returns output containing only the files that contain a match. This option and `--files-with-match` both return the same output.
 
 **Example One:**
 
@@ -185,6 +187,7 @@ Here is an excerpt from the grep manual, obtained by using the `man grep` comman
 The `-i` or `--ignore-case` option searches for the given pattern regardless of whether the match contains characters that are upper or lower case. Users can input the search term fully capitalized, fully uncapitalized, or capitalized and uncapitalized throughout and the output will still be the same because of the option. 
 
 **Example One:**
+
 Here, I search for the term "cONseRVeD" within the file journal.pbio.0020042.txt within the plos folder.
 ```
 $ grep -i "cONseRVeD" ./technical/plos/journal.pbio.0020042.txt
@@ -198,6 +201,7 @@ $ grep -i "cONseRVeD" ./technical/plos/journal.pbio.0020042.txt
 Since I used the `-i` option, the output contains each line containing some iteration of the word "cONseRVeD" even if the case of each letter does not exactly match. Of course, it would be strange that a word is capitalized like this, but with the option I don't have to worry about whether or not the term matches exactly making this a useful option. 
 
 **Example Two:**
+
 Here, I search for the term "california" within the file chapter-5.txt in the 911report folder. 
 ```
  $ grep -i "california" ./technical/911report/chapter-5.txt
@@ -209,6 +213,7 @@ Here, I search for the term "california" within the file chapter-5.txt in the 91
 Since this is a proper document, "california" would obviously be capitalized, but since I used the `-i` option, the output contained each line containing "California" because again, the option is meant for the computer to ignore case mismatch. This option is useful for when people are unaware that a term may be a proper noun, and allows for people to still find it regardless of this mistake. 
 
 **Example Three:**
+
 Here, I use the longer version of the option `--ignore-case` to search for the pattern "acCOUNTing" within the file d01121g.txt inside the Gen_Account_Office folder inside the government folder.
 
 ```
@@ -218,7 +223,7 @@ United States General Accounting Office Office of Special
 Special Investigations, U.S. General Accounting Office, 441 G.
 ```
 
-Similar to the first example of this option, three instances of some variation of the characters "acCOUNTing" were found, and once again, the case of the letters did not affect the output of this command. By using this more descriptive option, on top of how useful it already is, by using this more descriptive version of it, more people can know what you are doing when looking at your commands, as well as yourself if you decide to revisit some of your commands that you might have put into a script. 
+Similar to the first example of this option, three instances of some variation of the characters "acCOUNTing" were found, and once again, the case of the letters did not affect the output of this command. By using this more descriptive option, on top of how useful it already is, more people can know what you are doing when looking at your commands, as well as yourself if you decide to revisit some old commands that you might have put into a script.
 
 
 
