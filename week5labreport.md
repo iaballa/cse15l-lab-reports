@@ -1,9 +1,8 @@
 # grep Research 
 The following is a short page about the `grep` command and the following three options:
-1. `-c` or `--count` for count
-2. `-l` or `--files-with-matches` for files with matches
-3.  ;alksdjf
-
+1. `-c` or `--count` for output that returns the count of lines containing the search term
+2. `-l` or `--files-with-matches` for output that returns files with matches 
+3.  `-i` or `--ignore-case` for output of case insensitive searches
 
 
 For the purposes of this page, the directory I'm working in is called docsearch that roughly looks like:
@@ -126,7 +125,7 @@ $ grep -c "Abraham" ./technical/911report/chapter-2.txt
 
 **2. `-l` or `--files-with-match`**
 
-A better way to have approached the last example would have been to use the `-l` option. The `-l` option returns output containing only the files that contain a match. This option and `--files-with-match` both return the same output.
+A better way to have approached the last example would have been to use the `-l` option to first find which files contain the search term, and then go from there. The `-l` option returns output containing only the files that contain a match. This option and `--files-with-match` both return the same output. Then, with 
 
 **Example One:**
 
@@ -143,7 +142,69 @@ $ grep --files-with-matches "Abraham" ./technical/911report/*.txt
 ```
 
 **Example Two:**
-In this example, I use the `-l` option to find how many files contain "abortion" within the 
+
+In this example, I use the `-l` option to find how many files contain "abortion" within the Media folder inside the government folder. 
+```
+$ grep -l "abortion" ./technical/government/Media/*.txt
+./technical/government/Media/FY_04_Budget_Outlook.txt
+./technical/government/Media/Terrorist_Attack.txt
+```
+
+Here, we see that two files in our search path contain "abortion", these files being FY_04_Budget_Outlook.txt and Terrorist_Attack.txt. Here, we know that we have searched through each .txt file because at the end of our search, we use *.txt. 
+
+**Example Three:**
+
+In this example, I use the `--files-with-matches` command to search for all instances of "proteomic" within the plos folder.
+```
+$ grep --files-with-matches "proteomic" ./technical/plos/*.txt
+./technical/plos/journal.pbio.0020042.txt
+./technical/plos/journal.pbio.0020206.txt
+./technical/plos/pmed.0010066.txt
+```
+
+Here, I use the longer version of the option just to show that it still works as intended. Based on the output, we see that there are three files within the plos folder that contain the term "proteomic", these files being journal.pbio.0020042.txt, journal.pbio.0020206.txt, and pmed.0010066.txt.
+
+**3. `-i` or `--ignore-case`**
+
+The `-i` or `--ignore-case` option searches for the given pattern regardless of whether the match contains characters that are upper or lower case. Users can input the search term fully capitalized, fully uncapitalized, or capitalized and uncapitalized throughout and the output will still be the same because of the option. 
+
+**Example One:**
+Here, I search for the term "cONseRVeD" within the file journal.pbio.0020042.txt within the plos folder.
+```
+$ grep -i "cONseRVeD" ./technical/plos/journal.pbio.0020042.txt
+        “conserved hypothetical protein” when they occur in more than one genome or simply a
+        bioinformaticians to produce a list of all of the conserved hypothetical proteins that are
+        valuable. Three general classes of such genes come to mind: (1) The conserved hypothetical
+        conserved hypothetical gene that occurred in most genomes would be of higher priority than
+        conserved. In fact, for a laboratory that happened to be already working on one of the
+        one method might be better than another. The list would, of course, also include conserved
+```
+Since I used the `-i` option, the output contains each line containing some iteration of the word "cONseRVeD" even if the case of each letter does not exactly match. Of course, it would be strange that a word is capitalized like this, but with the option I don't have to worry about whether or not the term matches exactly. 
+
+**Example Two:**
+Here, I search for the term "california" within the file chapter-5.txt in the 911report folder. 
+```
+ $ grep -i "california" ./technical/911report/chapter-5.txt
+                became the primary target. For similar reasons, California also became a target for
+                headquarters, nuclear power plants, and the tallest buildings in California and the
+                such as San Diego and Long Beach, California; brochures for schools; and airline
+```
+
+Since this is a proper document, "california" would obviously be capitalized, but since I used the `-i` option, the output contained each line containing "California" because again, the option is meant for the computer to ignore case mismatch. 
+
+**Example Three:**
+Here, I use the longer version of the option `--ignore-case` to search for the pattern "acCOUNTing" within the file d01121g.txt inside the Gen_Account_Office folder inside the government folder.
+
+```
+$ grep --ignore-case "acCOUNTing" ./technical/government/Gen_Account_Office/d01121g.txt
+United States General Accounting Office
+United States General Accounting Office Office of Special
+Special Investigations, U.S. General Accounting Office, 441 G.
+```
+
+Similar to the first example of this option, three instances of some variation of the characters "acCOUNTing" were found, and once again, the case of the letters did not affect the output of this command. 
+
+
 
 
 
