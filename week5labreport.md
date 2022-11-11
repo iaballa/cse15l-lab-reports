@@ -1,7 +1,7 @@
 # grep Research 
 The following is a short page about the `grep` command and the following three options:
 1. `-c` or `--count` for count
-2. ``
+2. `-l` or `--files-with-matches` for files with matches
 3.  ;alksdjf
 
 
@@ -75,11 +75,17 @@ By using the `-c` option, the output has changed from including the entire line 
 
 **Example Two:**
 
-
+In this example, I search for the term "law" within file LegalServCorp_v_VelazquezDissent.txt within the government folder:
+```
+$ grep -c "law" ./technical/government/About_LSC/LegalServCorp_v_VelazquezDissent.txt 
+26
+```
+After typing grep in the terminal to search for the existence of "law" within the given file, I changed the output of the command with the option `-c` in order to make it more readable. If I hadn't used the `-c` option, the output would be much longer with extra words and information that I may not actually need.
 
 **Example Three, with an example of what NOT to do:**
 
-In this example, I search for the term "Abraham" within the entire 911report folder with the command `grep "Abraham" ./technical/911report/*.txt`. It yields the following output: 
+In this example, I search for the term "Abraham" within the entire 911report folder (by using *.txt) with the command 
+`grep "Abraham" ./technical/911report/*.txt`. It yields the following output: 
 
 ```
 $ grep "Abraham" ./technical/911report/*.txt 
@@ -112,13 +118,34 @@ $ grep -c "Abraham" ./technical/911report/*.txt
 While this may be helpful in figuring out how many files contain "Abraham", it's not the most efficient way to do so. And the output of 
 `entirefilepath:linescontainingsearchpattern` is kind of an eyesore. This leads me to my next option: `-l` that I'll cover after showing you how to properly use the `-c` option in this case.
 
-Here, I correctly search for the term "Abraham" within file chapter-2.txt within the folder 911report:
+Here, I correctly search for the term "Abraham" within file chapter-2.txt within the folder 911report by changing the file that I am searching in, a very important step when using `-c` to avoid super lengthy, unhelpful output:
 ```
 $ grep -c "Abraham" ./technical/911report/chapter-2.txt
 2
 ```
 
-**2. `-l`, files with match**
+**2. `-l` or `--files-with-match`**
+
+A better way to have approached the last example would have been to use the `-l` option. The `-l` option returns output containing only the files that contain a match. This option and `--files-with-match` both return the same output.
+
+**Example One:**
+
+In this example, I am using the `-l` option to find how many files contain "Abraham" inside the entire 911report folder (by using *.txt). 
+```
+$ grep -l "Abraham" ./technical/911report/*.txt
+./technical/911report/chapter-2.txt
+```
+Here, we see that only one file within the 911report folder contains "Abraham", this file being chapter-2.txt. And, this output makes sense with the previous example we had. The following is the output of using `--files-with-matches` just to show you an alternate way to use this option. 
+
+```
+$ grep --files-with-matches "Abraham" ./technical/911report/*.txt
+./technical/911report/chapter-2.txt
+```
+
+**Example Two:**
+In this example, I use the `-l` option to find how many files contain "abortion" within the 
+
+
 
 
 
