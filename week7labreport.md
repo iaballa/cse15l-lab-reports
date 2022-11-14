@@ -58,13 +58,40 @@ Press `.`:
 
 Then press `<Escape>`.
 
-**4)** Saving changes:
+**4)** Saving changes and quitting:
 
 Press `:wq` and the following should show up at the bottom of the file:
 
 ![image](https://user-images.githubusercontent.com/114435397/201598363-ad826a02-4bdc-4d50-890f-f88a01672082.png)
 
-Then, press `<Enter>`! And it should exit the file and take you back to the terminal. 
+Then, press `<Enter>`! And it should exit the file and take you back to the terminal. If you don't want to quit/exit the file, just skip pressing q and then press `<Enter>`.
+
+--- 
+
+### Part 2:
+The following bullet points are from the Week 7 Lab Report write up:
+
+- Once, start in Visual Studio Code and make the edit there, then scp the file to the remote server and run it there to confirm it works (you can just run bash test.sh on the remote to test it out). Consider having the appropriate scp command in your command history or easily copy-pasteable!
+
+It took me 4:44.45 to complete the task using the first method, from opening the file in Visual Studio Code, making edits there manually, scp-ing and getting confused between directories, to finally copying it over, and checking to see that the proper changes were made. I had the following line readily available, though I did have a few hiccups before finally arriving at this correct command: 
+`scp DocSearchServer.java cs15lfa22em@ieng.ucsd.edu:/home/linux/ieng6/cs15lfa22/cs15lfa22em/skill-demo1`.
+
+
+- Second, start already logged into a ssh session. Then, make the edit for the task you chose in Vim, then exit Vim and run bash test.sh.
+
+It took me 53.60 seconds to complete the task already logged in to ssh, cloning the repository, and making the changes using the vim keystrokes. There were way less issues with this second method than there were in the first method. 
+
+
+**Responses to the two bullet points in the write up:**
+
+- Which of these two styles would you prefer using if you had to work on a program that you were running remotely, and why?
+
+I would definitely prefer the second style if I was working on a program that was running remotely. This is because by already being logged into the remote server, I don't have to worry about getting the path of the file exactly correct when copying it over. Part of the reason that it took me so long to do the first method was because I forgot the colon directly after my remote account. By already being logged in, this is way smaller of an issue, and by using the vim keystrokes, I didn't have to individually search for each occurrence of start within the file. The vim keystrokes kind of did it for me, saving me lots of time. 
+
+- What about the project or task might factor into your decision one way or another? (If nothing would affect your decision, say so and why!)
+
+If I'm going to be consistently making lots of changes, I'd definitely prefer the second method over the first. However, if I won't be editing the file as much, then I might be okay with doing the first method. It really depends on how often I'll be editing the file, and it also depends on how big it is. I don't want to be spending lots of my time just waiting around for the file to copy over. 
+
 
 
 
