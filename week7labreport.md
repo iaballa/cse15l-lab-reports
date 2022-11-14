@@ -7,11 +7,9 @@ From week 6's tasks, the task I'm including in this lab report is the first one,
 
 In collaboration with my groupmate Alex Yang, we came up with the following set of keystrokes assuming that the user has already:
 
-1) cloned the repository (https://github.com/ucsd-cse15l-f22/skill-demo1) with `git clone https://github.com/ucsd-cse15l-f22/skill-demo1`
-
-2) changed the current directory to be said repository with `cd skill-demo1`
-
-3) opened the DocSearchServer.java file with `vim DocSearchServer.java`
+1. cloned the repository (https://github.com/ucsd-cse15l-f22/skill-demo1) with `git clone https://github.com/ucsd-cse15l-f22/skill-demo1`
+2. changed the current directory to be said repository with `cd skill-demo1`
+3. opened the DocSearchServer.java file with `vim DocSearchServer.java`
 
 Assuming the above steps have already been completed, in order to change the name of each start parameter and its uses to base, the user must complete the following keystrokes:
 
